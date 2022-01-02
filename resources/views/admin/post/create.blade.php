@@ -19,7 +19,7 @@
                 </ul>
             </div>
             @endif
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <form action=" {{ url('admin/post/create') }} " method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3">
@@ -56,7 +56,7 @@
                     
                     <div class="form-group mb-3">
                         <label for="content">Content</label>
-                        <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+                        <textarea class="form-control" id="content" name="content" rows="10" cols="50"></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>   
@@ -69,18 +69,14 @@
 @endsection
 
 @section('js')
+<script src="/assets/js/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
-    import "./ckeditor.js";
-    var ckeditor = require( 'ckeditor' );
 
     var content = document.getElementById('content');
-    ckeditor.ClassicEditor
-        .create( content )
-        .then( editor => {
-            console.log( editor );
-        } )
-        .catch( error => {
-            console.error( error );
-        } );
+    
+    CKEDITOR.replace(content, {
+        language: 'en-gb'
+    });
+    CKEDITOR.config.allowedContent = true;
 </script>   
 @endsection
