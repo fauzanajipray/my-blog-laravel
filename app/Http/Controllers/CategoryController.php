@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
@@ -62,7 +63,7 @@ class CategoryController extends Controller
         
         if ($request->hasFile('image')) {
             if ($category->image != "" || $category->image !== null) {
-                unlink($category->image);
+                File::delete($category->image);
             }
             $files = Str::random(20).'.'.$request->image->getClientOriginalName();
             $request->file('image')->move("file/category/", $files);
