@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -40,6 +41,7 @@ Route::middleware('checkAdmin')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [AdminController::class, 'index']);
 
+        //fix
         Route::prefix('category')->group(function(){
             Route::get('/', [CategoryController::class, 'index']);
             Route::get('/create', [CategoryController::class, 'create']);
@@ -49,6 +51,7 @@ Route::middleware('checkAdmin')->group(function () {
             Route::get('/delete/{id}', [CategoryController::class, 'delete']);
         });
 
+        //
         Route::prefix('post')->group(function(){
             Route::get('/', [PostController::class, 'index']);
             Route::get('/create', [PostController::class, 'create']);
