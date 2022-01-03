@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -62,16 +63,16 @@ class CategoryController extends Controller
         
         if ($request->hasFile('image')) {
             if ($category->image != "" || $category->image !== null) {
-                unlink($category->image);
+                File::delete($category->image);
             }
             $files = Str::random(20).'.'.$request->image->getClientOriginalName();
             $request->file('image')->move("file/category/", $files);
             $req['image'] = "file/category/".$files;
         }
 
-        $data = $category::find($id)->update($req);
+        $update = $category->update($req);
 
-        if($data){
+        if($update){
             return redirect('admin/category')->with('status', 'Berhasil mengupdate data!');
         }
         return redirect('admin/category/edit/'.$id)->with('status', 'Gagal mengupdate data!');
@@ -79,8 +80,14 @@ class CategoryController extends Controller
 
     // menghapus data
     public function delete($id){
-        $data = Category::find($id);
-        $delete = $data->delete();
+        $category = Category::find($id);
+        if($category == null){
+            return redirect('admin/category')->with('status', 'Data tidak ditemukan!');
+        }
+        if($category->image != "" || $category->image !== null) {
+            File::delete($category->image);
+        }
+        $delete = $category->delete();
         if($delete){
             return redirect('admin/category')->with('status', 'Berhasil menghapus data!');
         }

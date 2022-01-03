@@ -49,8 +49,8 @@
                         {{ ($category->id == $item->category_id) ? $category->name : '' }}
                         @endforeach
                     </td>
-                    <td>{{ ($item->is_headline == 1 ) ? 'Yes': 'No' }}</td>
-                    <td>{{ ($item->status) ? 'Yes' : 'No' }}</td>
+                    <td>{{ ($item->is_headline == 1) ? 'Yes': 'No' }}</td>
+                    <td>{{ ($item->status == 1) ? 'Yes' : 'No' }}</td>
                     <td>
                         <a href="{{ url('admin/post/edit/'.$item->id) }}" class="btn btn-sm btn-primary m-2">
                             <span data-feather="edit"></span>
