@@ -13,7 +13,7 @@
                 <div class="btn-group me-2">
                     <a href="{{ url('admin/post/create') }}" class="btn btn-sm btn-outline-secondary p-1">
                         <span data-feather="file-plus"></span>
-                        Add Post
+                        Add {{ $title }}
                     </a>
                 </div>
             </div>
@@ -29,6 +29,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Thumbnail</th>
                     <th scope="col">Category</th>
                     <th scope="col">Is_Headline</th>
                     <th scope="col">Status</th>
@@ -40,12 +41,16 @@
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->title }}</td>
-                    <td>{{ $item->category }}</td>
+                    <td>
+                        <img src="{{ asset($item->thumbnail) }}" alt="{{ $item->name }}" width="150">
+                    </td>
+                    <td>
+                        @foreach ($categories as $category) 
+                        {{ ($category->id == $item->category_id) ? $category->name : '' }}
+                        @endforeach
+                    </td>
                     <td>{{ ($item->is_headline == 1 ) ? 'Yes': 'No' }}</td>
                     <td>{{ ($item->status) ? 'Yes' : 'No' }}</td>
-                    {{-- <td>
-                        <img src="{{ asset($item->image) }}" alt="{{ $item->name }}" width="100">
-                    </td> --}}
                     <td>
                         <a href="{{ url('admin/post/edit/'.$item->id) }}" class="btn btn-sm btn-primary m-2">
                             <span data-feather="edit"></span>

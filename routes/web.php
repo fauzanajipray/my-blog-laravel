@@ -51,7 +51,7 @@ Route::middleware('checkAdmin')->group(function () {
             Route::get('/delete/{id}', [CategoryController::class, 'delete']);
         });
 
-        //
+        // belum
         Route::prefix('post')->group(function(){
             Route::get('/', [PostController::class, 'index']);
             Route::get('/create', [PostController::class, 'create']);

@@ -28,11 +28,11 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="thumbnail">Thumbnail</label>
-                        <input type="file" class="form-control" id="image" name="image">
+                        <input type="file" class="form-control" id="thumbnail" name="thumbnail">
                     </div>
                     <div class="form-group mb-3">
                         <label for="category">Category</label>
-                        <select class="form-control" id="category" name="category">
+                        <select class="form-control" id="category_id" name="category_id">
                             <option value="">Select Category</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -70,13 +70,5 @@
 
 @section('js')
 <script src="/assets/js/ckeditor/ckeditor.js"></script>
-<script type="text/javascript">
-
-    var content = document.getElementById('content');
-    
-    CKEDITOR.replace(content, {
-        language: 'en-gb'
-    });
-    CKEDITOR.config.allowedContent = true;
-</script>   
+<script src="/assets/js/setckeditor.js" type="text/javascript"></script>   
 @endsection

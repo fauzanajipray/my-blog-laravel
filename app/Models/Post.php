@@ -15,9 +15,9 @@ class Post extends Model
         'title', 'thumbnail', 'content', 'category_id', 'is_headline', 'status'
     ];
 
-    public $rules = [
+    public static $rules = [
         'title' => 'required',
-        'thumbnail' => 'required',
+        'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'content' => 'required',
         'category_id' => 'required',
         'is_headline' => 'required',

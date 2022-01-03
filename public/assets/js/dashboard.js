@@ -1,9 +1,10 @@
 /* globals Chart:false, feather:false */
 
-(function () {
+( function () {
     'use strict'
   
     feather.replace({ 'aria-hidden': 'true' })
+  
   
     // Graphs
     var ctx = document.getElementById('myChart')
@@ -50,4 +51,12 @@
         }
       }
     })
+    
   })()
+
+  
+
+  
+  
+
+ 
