@@ -13,7 +13,7 @@
                 <div class="btn-group me-2">
                     <a href="{{ url('admin/category/create') }}" class="btn btn-sm btn-outline-secondary p-1">
                         <span data-feather="file-plus"></span>
-                        Add Data
+                        Add {{ $title }}
                     </a>
                 </div>
             </div>
