@@ -13,6 +13,7 @@ class CategoryController extends Controller
     public function index(){
         $data = Category::get();
         $title = 'Category';
+        
         return view('admin.category.index', compact('data', 'title'));
     }
 

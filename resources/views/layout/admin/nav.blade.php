@@ -20,9 +20,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="users"></span>
-            Customers
+          <a class="nav-link {{ ($title === 'Main Menu') ? 'active' : '' }}" href="{{ url('admin/mainmenu') }}">
+            <span data-feather="menu"></span>
+            Main Menu
           </a>
         </li>
         <li class="nav-item">
