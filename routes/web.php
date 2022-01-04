@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\MainMenuController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -51,7 +52,7 @@ Route::middleware('checkAdmin')->group(function () {
             Route::get('/delete/{id}', [CategoryController::class, 'delete']);
         });
 
-        // belum
+        //fix
         Route::prefix('post')->group(function(){
             Route::get('/', [PostController::class, 'index']);
             Route::get('/create', [PostController::class, 'create']);
@@ -59,6 +60,15 @@ Route::middleware('checkAdmin')->group(function () {
             Route::get('/edit/{id}', [PostController::class, 'edit']);
             Route::post('/edit/{id}', [PostController::class, 'postEdit']);
             Route::get('/delete/{id}', [PostController::class, 'delete']);
+        });
+        
+        Route::prefix('mainmenu')->group(function(){
+            Route::get('/', [MainMenuController::class, 'index']);
+            Route::get('/create', [MainMenuController::class, 'create']);
+            Route::post('/create', [MainMenuController::class, 'postCreate']);
+            Route::get('/edit/{id}', [MainMenuController::class, 'edit']);
+            Route::post('/edit/{id}', [MainMenuController::class, 'postEdit']);
+            Route::get('/delete/{id}', [MainMenuController::class, 'delete']);
         });
 
         Route::prefix('slider')->group(function(){
@@ -68,15 +78,6 @@ Route::middleware('checkAdmin')->group(function () {
             Route::get('/edit/{id}', [SliderController::class, 'edit']);
             Route::post('/edit/{id}', [SliderController::class, 'postEdit']);
             Route::get('/delete/{id}', [SliderController::class, 'delete']);
-        });
-
-        Route::prefix('mainmenu')->group(function(){
-            Route::get('/', [MainMenuController::class, 'index']);
-            Route::get('/create', [MainMenuController::class, 'create']);
-            Route::post('/create', [MainMenuController::class, 'postCreate']);
-            Route::get('/edit/{id}', [MainMenuController::class, 'edit']);
-            Route::post('/edit/{id}', [MainMenuController::class, 'postEdit']);
-            Route::get('/delete/{id}', [MainMenuController::class, 'delete']);
         });
 
         Route::get('message', [MessageController::class, 'index']);

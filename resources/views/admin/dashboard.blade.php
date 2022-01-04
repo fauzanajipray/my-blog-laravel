@@ -161,3 +161,8 @@
     
 @endsection
 
+@section('js')
+  <script src="/assets/js/dashboard.js" type="text/javascript"></script>
+    
+@endsection
+

@@ -60,6 +60,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>   
+                    <a href="{{ url('admin/category') }}" class="btn btn-danger">Cancel</a>
                 </form>     
             </div>
         </main>
