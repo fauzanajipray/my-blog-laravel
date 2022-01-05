@@ -13,7 +13,7 @@ class AdminController extends Controller
 {
     public function index() {
         $title = 'Dashboard';
-        return view('admin.dashboard', compact('title'));
+        return view('admin.index', compact('title'));
     }
 
     public function register(){

@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MainMenuController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -80,7 +81,10 @@ Route::middleware('checkAdmin')->group(function () {
             Route::get('/delete/{id}', [SliderController::class, 'delete']);
         });
 
-        Route::get('message', [MessageController::class, 'index']);
+        Route::prefix('message')->group(function(){
+            Route::get('/', [MessageController::class, 'index']);
+            Route::get('/delete/{id}', [MessageController::class, 'delete']);
+        });
         
         Route::prefix('profile')->group(function(){
             Route::get('{id}', [AdminController::class, 'edit']);
