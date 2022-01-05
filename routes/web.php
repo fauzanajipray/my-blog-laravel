@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MainMenuController;
+use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -19,10 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/   ', function () {
-    return view('welcome');
+    return view('public.index');
 });
-
-// Route::get('category', [CategoryController::class, 'index']);
 
 // Route Akses Admin
 
@@ -62,6 +61,7 @@ Route::middleware('checkAdmin')->group(function () {
             Route::get('/delete/{id}', [PostController::class, 'delete']);
         });
         
+        //fix
         Route::prefix('mainmenu')->group(function(){
             Route::get('/', [MainMenuController::class, 'index']);
             Route::get('/create', [MainMenuController::class, 'create']);

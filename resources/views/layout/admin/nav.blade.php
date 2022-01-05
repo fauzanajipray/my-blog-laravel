@@ -20,21 +20,27 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ ($title === 'Main Menu') ? 'active' : '' }}" href="{{ url('admin/mainmenu') }}">
+          <a class="nav-link {{ ($title === 'Main Menu') ? 'active' : '' }} " href="{{ url('admin/mainmenu') }}">
             <span data-feather="menu"></span>
             Main Menu
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="bar-chart-2"></span>
-            Reports
+          <a class="nav-link {{ ($title === 'Slider') ? 'active' : '' }} " href="{{ url('admin/slider') }}">
+            <span data-feather="sliders"></span>
+            Slider
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="layers"></span>
-            Integrations
+          <a class="nav-link {{ ($title === 'Message') ? 'active' : '' }} " href="{{ url('admin/message') }}">
+            <span data-feather="message-circle"></span>
+            Message
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ ($title === 'Profile') ? 'active' : '' }}" href="{{ url('admin/profile') }}">
+            <span data-feather="user"></span>
+            Profile
           </a>
         </li>
       </ul>
