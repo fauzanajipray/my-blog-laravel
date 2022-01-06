@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\MainMenuController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PortalController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,9 +21,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/   ', function () {
-    return view('public.index');
-});
 
 // Route Akses Admin
 
@@ -87,8 +85,14 @@ Route::middleware('checkAdmin')->group(function () {
         });
         
         Route::prefix('profile')->group(function(){
-            Route::get('{id}', [AdminController::class, 'edit']);
-            Route::post('{id}', [AdminController::class, 'update']);
+            Route::get('/', [AdminController::class, 'edit']);
+            Route::post('/{id}', [AdminController::class, 'update']);
         });
     });
 });
+
+// Route untuk Frontend
+
+Route::get('/', [PortalController::class, 'index']);
+Route::get('/category/{id}', [PortalController::class, 'category']);
+
