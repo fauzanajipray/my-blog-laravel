@@ -4,6 +4,9 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MainMenuController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PortalController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,11 +21,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/   ', function () {
-    return view('welcome');
-});
-
-// Route::get('category', [CategoryController::class, 'index']);
 
 // Route Akses Admin
 
@@ -62,6 +60,7 @@ Route::middleware('checkAdmin')->group(function () {
             Route::get('/delete/{id}', [PostController::class, 'delete']);
         });
         
+        //fix
         Route::prefix('mainmenu')->group(function(){
             Route::get('/', [MainMenuController::class, 'index']);
             Route::get('/create', [MainMenuController::class, 'create']);
@@ -80,11 +79,20 @@ Route::middleware('checkAdmin')->group(function () {
             Route::get('/delete/{id}', [SliderController::class, 'delete']);
         });
 
-        Route::get('message', [MessageController::class, 'index']);
+        Route::prefix('message')->group(function(){
+            Route::get('/', [MessageController::class, 'index']);
+            Route::get('/delete/{id}', [MessageController::class, 'delete']);
+        });
         
         Route::prefix('profile')->group(function(){
-            Route::get('{id}', [AdminController::class, 'edit']);
-            Route::post('{id}', [AdminController::class, 'update']);
+            Route::get('/', [AdminController::class, 'edit']);
+            Route::post('/{id}', [AdminController::class, 'update']);
         });
     });
 });
+
+// Route untuk Frontend
+
+Route::get('/', [PortalController::class, 'index']);
+Route::get('/category/{id}', [PortalController::class, 'category']);
+

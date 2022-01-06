@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades;
+use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
 {
     public function index() {
         $title = 'Dashboard';
-        return view('admin.dashboard', compact('title'));
+        return view('admin.index', compact('title'));
     }
 
     public function register(){
@@ -60,6 +60,47 @@ class AdminController extends Controller
     public function logout(){
         Session::flush();
         return redirect('login')->with('status', 'Berhasil logout!');
+    }
+
+    public function edit(){
+        $title = 'Edit Admin';
+        $data = User::find(Session::get('admin_id'));
+        if ($data) {
+            return view('admin.profile.index', compact('title', 'data'));
+        }
+        return redirect('admin')->with('status', 'Data tidak ditemukan!');
+    }
+
+    public function update(Request $request, $id) {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $data = User::find($id);
+        if ($data) {
+            $req = request()->all();
+            
+            if ($request->hasFile('image')) {
+                if($data->image != "" || $data->image !== null){
+                    File::delete($data->image);
+                }
+
+                $file = $request->file('image');
+                $destinationPath = "file/admin/";
+                $filename = Str::random(20) . '.' . $file->getClientOriginalName();
+                $file->move($destinationPath, $filename);
+                $req['image'] = $destinationPath.$filename;
+            }
+
+            $update = $data->update($req);
+            if($update){
+                return redirect('admin')->with('status', 'Berhasil mengubah data!');
+            }
+            return redirect('admin/edit')->with('status', 'Gagal mengubah data!');
+        }   
+        return redirect('admin')->with('status', 'Data tidak ditemukan!');
     }
 
 }

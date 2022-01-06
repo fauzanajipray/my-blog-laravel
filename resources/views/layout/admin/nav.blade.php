@@ -4,7 +4,7 @@
         <li class="nav-item">
           <a class="nav-link {{ ($title === 'Dashboard') ? 'active' : '' }}" aria-current="page" href="{{ url('admin') }}">
             <span data-feather="home"></span>
-            Dashboard 
+            Home 
           </a>
         </li>
         <li class="nav-item">
@@ -20,54 +20,36 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ ($title === 'Main Menu') ? 'active' : '' }}" href="{{ url('admin/mainmenu') }}">
+          <a class="nav-link {{ ($title === 'Main Menu') ? 'active' : '' }} " href="{{ url('admin/mainmenu') }}">
             <span data-feather="menu"></span>
             Main Menu
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="bar-chart-2"></span>
-            Reports
+          <a class="nav-link {{ ($title === 'Slider') ? 'active' : '' }} " href="{{ url('admin/slider') }}">
+            <span data-feather="sliders"></span>
+            Slider
           </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="layers"></span>
-            Integrations
-          </a>
-        </li>
+        </li>        
       </ul>
 
       <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-        <span>Saved reports</span>
+        <span>Admin</span>
         <a class="link-secondary" href="#" aria-label="Add a new report">
-          <span data-feather="plus-circle"></span>
+          {{-- <span data-feather="plus-circle"></span> --}}
         </a>
       </h6>
-      <ul class="nav flex-column mb-2">
+      <ul class="nav flex-column mb-2">        
         <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="file-text"></span>
-            Current month
+          <a class="nav-link {{ ($title === 'Message') ? 'active' : '' }} " href="{{ url('admin/message') }}">
+            <span data-feather="message-circle"></span>
+            Message
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="file-text"></span>
-            Last quarter
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="file-text"></span>
-            Social engagement
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="file-text"></span>
-            Year-end sale
+          <a class="nav-link {{ ($title === 'Profile') ? 'active' : '' }}" href="{{ url('admin/profile') }}">
+            <span data-feather="user"></span>
+            Profile
           </a>
         </li>
       </ul>

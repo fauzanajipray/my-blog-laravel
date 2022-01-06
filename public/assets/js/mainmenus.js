@@ -14,7 +14,6 @@
 
     function categoryOnChange(){
         var data = category.value;
-        console.log("Harusya dijalankan " + i++ + ": "+ data);
         files.style.display = 'none';
         links.style.display = 'none';
         contents.style.display = 'none';
