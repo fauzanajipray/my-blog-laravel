@@ -94,5 +94,16 @@ Route::middleware('checkAdmin')->group(function () {
 // Route untuk Frontend
 
 Route::get('/', [PortalController::class, 'index']);
-Route::get('/category/{id}', [PortalController::class, 'category']);
-
+Route::get('about', [PortalController::class, 'about']);
+Route::get('contact', [PortalController::class, 'contact']);
+Route::get('post', [PortalController::class, 'post']);
+Route::get('post-detail/{id}', [PortalController::class, 'postDetail']);
+Route::get('category/{id}', [PortalController::class, 'category']);
+Route::get('menu/{id}', [PortalController::class, 'menu']);
+Route::get('search', [PortalController::class, 'search']);
+Route::prefix('comment')->group(function(){
+    Route::post('/', [CommentController::class, 'insert']);
+});
+Route::prefix('contact')->group(function(){
+    Route::post('/', [MessageController::class, 'insert']);
+});
