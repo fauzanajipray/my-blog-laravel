@@ -23,14 +23,20 @@
 
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
+	@livewireStyles
+
 </head>
 <body>
+	
+	@livewire('show-navigation');
     
     @yield('content')
 
     <!-- Scripts -->
 	<script src="/assets/js/min/plugins.min.js"></script>
 	<script src="/assets/js/min/medigo-custom.min.js"></script>
+
+	@livewireScripts
 
 </body>
 </html>

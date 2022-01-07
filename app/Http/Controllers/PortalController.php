@@ -19,7 +19,7 @@ class PortalController extends Controller
         $data['headline']       = Post::where('status', 1)->where('is_headline', 1)->limit(1)->get();
         $data['user']           = User::first();
         $data['category']       = Category::get();
-
+        
         return view('portal.index', compact('data'));    
     }
     
