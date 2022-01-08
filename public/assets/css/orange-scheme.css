@@ -1373,7 +1373,7 @@ blockquote {
 }
 
 /* Slider Style */
-.first-widget .container-fluid {
+.first-widget .container {
 	padding: 0px 10px;  
 	margin-bottom: -24px;
 }
@@ -1388,9 +1388,12 @@ blockquote {
 
 .sliders-corousel  .item .item-content {
   position: absolute;
-	bottom: 50px;
-	/* left: 50%;
-  transform: translateX(-50%); */
+	bottom: 40px;
+  left: 40px;
+  background-color: #31373a;
+  border-radius: 5px;
+  padding: 10px;
+  opacity: 70%;
 }
 
 .sliders-corousel  .item .item-content .meta-category span {
@@ -1408,6 +1411,10 @@ blockquote {
 	letter-spacing: 0.5px;
 	text-transform: capitalize;
 	margin: 10px 0px 12px 0px;
+}
+
+.sliders-corousel  .item .item-content h4:hover {
+  color: #f17e39;
 }
 
 .sliders-corousel  .item .item-content ul {
@@ -1446,7 +1453,7 @@ blockquote {
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
-  height: auto;
+  max-height: 600px;
 }
 
 .sliders-corousel  .owl-nav {

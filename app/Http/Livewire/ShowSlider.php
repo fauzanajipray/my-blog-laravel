@@ -12,7 +12,7 @@ class ShowSlider extends Component
 
     public function mount()
     {
-        $this->sliders = Slider::where('status', 1)->get();
+        $this->sliders = Slider::where('status', 1)->orderby('order','asc')->get();
     }
 
     public function render()
