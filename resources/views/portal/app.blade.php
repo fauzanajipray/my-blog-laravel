@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="/assets/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="/assets/css/misc.css">
 	<link rel="stylesheet" href="/assets/css/orange-scheme.css">
+	@yield('css')
 	
 	<!-- JavaScripts -->
 	<script src="/assets/js/jquery-1.10.2.min.js"></script>
@@ -23,18 +24,21 @@
 
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
+	
 	@livewireStyles
 
 </head>
 <body>
-	
-	@livewire('show-navigation');
+	<!-- Header -->
+	@livewire('show-navigation')
     
     @yield('content')
 
     <!-- Scripts -->
-	<script src="/assets/js/min/plugins.min.js"></script>
-	<script src="/assets/js/min/medigo-custom.min.js"></script>
+	@yield('js')
+	<script src="/assets/js/plugins.js"></script>
+	<script src="/assets/js/medigo-custom.js"></script>
+	<script src="/assets/js/app.js"></script> 
 
 	@livewireScripts
 

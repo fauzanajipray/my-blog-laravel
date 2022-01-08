@@ -12,7 +12,6 @@ class ShowNavigation extends Component
     public function mount()
     {
         $this->mainmenus = MainMenu::where('status', 1)->where('parent', 0)->orderBy('order', 'asc')->get();
-        
     }
     
     public function render()

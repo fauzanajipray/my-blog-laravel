@@ -1,7 +1,5 @@
 jQuery(document).ready(function($){
 
-
-
 	/************** SuperFish Menu *********************/
 		function initSuperFish(){
 			
@@ -20,13 +18,30 @@ jQuery(document).ready(function($){
 		
 		initSuperFish();
 
+	/************** Slider Carousel *********************/
+		function initCarousel(){
+			$(".sliders-corousel").owlCarousel({
+				loop: true,
+                navigation: true,
+				navigationText : ["",""],
+                autoplay: true,
+                items: 3,
+				itemsDesktop : [1199,2],
+      			itemsDesktopSmall : [768,1]
+			});
+		}
+
+		if ($('.sliders-corousel').length) {
+			initCarousel();
+        }
+		
 
 
 	/************** Portfolio Carousel *********************/
 		function initOwlCarousel(){
 
 			$("#portfolio-carousel").owlCarousel({
-				items : 4,
+				items : 5,
 				navigation : false,
 				pagination : false,
 				autoPlay : true,

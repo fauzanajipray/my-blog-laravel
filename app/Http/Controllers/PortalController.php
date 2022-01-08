@@ -13,7 +13,6 @@ class PortalController extends Controller
 {
     public function index()
     {
-        $data['sliders']        = Slider::where('status', 1)->get();
         $data['post']           = Post::where('status', 1)->orderBy('created_at', 'desc');
         $data['latestposts']    = Post::where('status', 1)->limit(5)->get();
         $data['headline']       = Post::where('status', 1)->where('is_headline', 1)->limit(1)->get();
