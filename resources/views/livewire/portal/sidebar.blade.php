@@ -2,8 +2,8 @@
     <div class="sidebar-widget">
         <h5 class="widget-title">Explore</h5>
         <div class="search-form">
-            <form action="#">
-                <input type="text" class="form-control" placeholder="Search Here...">
+            <form action="{{ url('search') }}" method="get">
+                <input type="text" class="form-control" placeholder="Search Here..." name="search">
             </form>
         </div>
     </div>

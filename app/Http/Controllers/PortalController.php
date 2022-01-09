@@ -25,8 +25,8 @@ class PortalController extends Controller
     public function about()
     {
         $data['post']           = Post::where('status', 1)->get();
-        $data['latestposts']    = Post::where('status', 1)->limit(5)->get();
-        $data['category']       = Category::get();
+        $data['latestposts']    = Post::where('status', 1)->limit(3)->get();
+        $data['categories']       = Category::get();
         $data['user']           = User::first();
         return view('portal.about', compact('data'));
     }
@@ -34,8 +34,8 @@ class PortalController extends Controller
     public function contact($id)
     {
         $data['posts']          = Post::where('status', 1)->get();
-        $data['latestposts']    = Post::where('status', 1)->limit(5)->get(5);
-        $data['category']       = Category::get();
+        $data['latestposts']    = Post::where('status', 1)->limit(3)->get();
+        $data['categories']       = Category::get();
         $data['user']           = User::first();
         return view('portal.contact', compact('data'));
     }
@@ -43,8 +43,8 @@ class PortalController extends Controller
     public function post()
     {
         $data['posts']          = Post::where('status', 1)->get();
-        $data['latestposts']    = Post::where('status', 1)->limit(5)->get(5);
-        $data['category']       = Category::get();
+        $data['latestposts']    = Post::where('status', 1)->limit(3)->get();
+        $data['categories']       = Category::get();
         $data['user']           = User::first();
         return view('portal.post', compact('data'));
     }
@@ -52,8 +52,8 @@ class PortalController extends Controller
     public function postDetail($id)
     {
         $data['posts']          = Post::where('status', 1)->get();
-        $data['latestposts']    = Post::where('status', 1)->limit(5)->get(5);
-        $data['category']       = Category::get();
+        $data['latestposts']    = Post::where('status', 1)->limit(3)->get();
+        $data['categories']       = Category::get();
         $data['user']           = User::first();
         $posts                  = Post::find($id);
         return view('portal.post-detail', compact('posts','data'));
@@ -62,8 +62,8 @@ class PortalController extends Controller
     public function menu($id)
     {
         $data['posts']          = Post::where('status', 1)->get();
-        $data['latestposts']    = Post::where('status', 1)->limit(5)->get(5);
-        $data['category']       = Category::get();
+        $data['latestposts']    = Post::where('status', 1)->limit(3)->get();
+        $data['categories']       = Category::get();
         $data['user']           = User::first();
         $data['menu']           = MainMenu::find($id);
         return view('portal.menu', compact('data'));
@@ -72,20 +72,18 @@ class PortalController extends Controller
     public function category($id)
     {
         $data['posts']          = Post::where('status', 1)->where('category_id', $id)->get();
-        $data['latestposts']    = Post::where('status', 1)->limit(5)->get(5);
-        $data['category']       = Category::get();
+        $data['latestposts']    = Post::where('status', 1)->limit(3)->get();
+        $data['categories']       = Category::get();
         $data['user']           = User::first();
         return view('portal.category', compact('data'));
     }
 
     public function search(Request $request)
     {
-        $data['posts']          = Post::where('status', 1)
-                                            ->where('title', 'like', '%'.$request->search.'%')
-                                            ->orWhere('content', 'like', '%'.$request->search.'%')
-                                            ->get();
-        $data['latestposts']    = Post::where('status', 1)->limit(5)->get(5);
-        $data['category']       = Category::get();
+        $data['posts']          = Post::where('status', 1)->where('title', 'like', '%'.$request->search.'%')
+                                            ->orWhere('content', 'like', '%'.$request->search.'%')->get();
+        $data['latestposts']    = Post::where('status', 1)->limit(3)->get();
+        $data['categories']     = Category::get();
         $data['user']           = User::first();
 
         return view('portal.search', compact('data'));
