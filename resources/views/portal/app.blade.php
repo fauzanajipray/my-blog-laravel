@@ -33,6 +33,8 @@
 	@livewire('portal.navbar')
     
     @yield('content')
+	
+	@livewire('portal.footer')
 
     <!-- Scripts -->
 	@yield('js')

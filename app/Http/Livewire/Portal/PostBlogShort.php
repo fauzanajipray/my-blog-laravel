@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Portal;
 
 use Livewire\Component;
 
 class PostBlogShort extends Component
 {
-    public $post;
+    private $post;
 
     public function mount($post)
     {
@@ -15,8 +15,8 @@ class PostBlogShort extends Component
 
     public function render()
     {
-        return view('livewire.post-blog-short', [
-            'post' => $this->post
+        return view('livewire.portal.post-blog-short', [
+            'post' => $this->post,
         ]);
     }
 }

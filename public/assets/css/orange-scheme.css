@@ -1174,7 +1174,9 @@ blockquote {
   margin-right: 15px;
 }
 .last-post .thumb img {
-  width: 100%;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
 }
 .last-post .content {
   overflow: hidden;

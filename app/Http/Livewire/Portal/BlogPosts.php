@@ -9,9 +9,9 @@ class BlogPosts extends Component
 {
     private $posts;
 
-    public function mount()
+    public function mount($posts)
     {
-        $this->posts = Post::where('status', 1)->orderBy('created_at', 'desc')->get();
+        $this->posts = $posts;
         
     }
 

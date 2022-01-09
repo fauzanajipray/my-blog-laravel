@@ -14,10 +14,10 @@ class PortalController extends Controller
     public function index()
     {
         $data['post']           = Post::where('status', 1)->orderBy('created_at', 'desc');
-        $data['latestposts']    = Post::where('status', 1)->limit(5)->get();
-        $data['headline']       = Post::where('status', 1)->where('is_headline', 1)->limit(1)->get();
+        $data['latestposts']    = Post::where('status', 1)->orderBy('created_at', 'desc')->limit(3)->get();
+        $data['headline']       = Post::where('status', 1)->where('is_headline', 1)->limit(3)->get();
         $data['user']           = User::first();
-        $data['category']       = Category::get();
+        $data['categories']       = Category::get();
         
         return view('portal.index', compact('data'));    
     }

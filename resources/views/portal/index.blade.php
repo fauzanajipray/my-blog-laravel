@@ -6,17 +6,19 @@
 
 @section('content')
 
-<!-- Slider -->
-@livewire('portal.show-slider')
+@livewire('portal.show-slider') <!-- Slider -->
 <div class="container">
     <div class="row">
-        @livewire('portal.blog-posts')
-        @livewire('portal.sidebar')
+        @livewire('portal.blog-posts', ['posts' => $data['headline']])
+        @livewire('portal.sidebar', [
+            'posts' => $data['latestposts'],
+            'categories' => $data['categories'],
+            'user' => $data['user'],
+        ])
     </div>
 </div>
 
 @endsection
-
 
 @section('js')
 
