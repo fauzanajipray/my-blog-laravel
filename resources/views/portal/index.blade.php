@@ -7,7 +7,13 @@
 @section('content')
 
 <!-- Slider -->
-@livewire('show-slider')
+@livewire('portal.show-slider')
+<div class="container">
+    <div class="row">
+        @livewire('portal.blog-posts')
+        @livewire('portal.sidebar')
+    </div>
+</div>
 
 @endsection
 

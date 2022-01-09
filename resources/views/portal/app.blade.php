@@ -30,7 +30,7 @@
 </head>
 <body>
 	<!-- Header -->
-	@livewire('show-navigation')
+	@livewire('portal.navbar')
     
     @yield('content')
 
