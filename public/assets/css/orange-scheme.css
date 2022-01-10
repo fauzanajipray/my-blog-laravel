@@ -1030,7 +1030,7 @@ blockquote {
   color: #f17e39;
 }
 
-.meta-date:after, .meta-comments:after {
+.meta-date:after, .meta-comments:after, .meta-category::after {
   content: '/';
   margin-left: 10px;
 }
@@ -1251,10 +1251,10 @@ blockquote {
 }
 
 .contact-form {
-  margin-top: 50px;
+  /* margin-top: 50px; */
   margin-bottom: 100px;
-  padding-top: 50px;
-  border-top: 1px solid #dce4e6;
+  /* padding-top: 50px;
+  border-top: 1px solid #dce4e6; */
 }
 .contact-form h3 {
   margin: 0 0 40px 0;

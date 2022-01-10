@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
+use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
@@ -27,4 +28,17 @@ class MessageController extends Controller
         }
         return redirect('admin/message')->with('status', 'Gagal menghapus data!');
     }
+
+    //Menginput data
+    public function insert(Request $request)
+    {
+        $this->validate($request, Message::$rules);
+        
+        $insert = Message::create($request->all());
+        if($insert){
+            return redirect('contact')->with('status', 'Berhasil mengirim pesan!');
+        }
+        return redirect('contact')->with('status', 'Gagal mengirim pesan!');
+    }
+     
 }

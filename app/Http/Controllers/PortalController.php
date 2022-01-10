@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\MainMenu;
 use App\Models\Post;
-use App\Models\Slider;
+use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -31,8 +31,9 @@ class PortalController extends Controller
         return view('portal.about', compact('data'));
     }
 
-    public function contact($id)
+    public function contact()
     {
+        $data['title']          = "Contact";
         $data['posts']          = Post::where('status', 1)->get();
         $data['latestposts']    = Post::where('status', 1)->limit(3)->get();
         $data['categories']       = Category::get();
@@ -42,9 +43,10 @@ class PortalController extends Controller
 
     public function post()
     {
+        $data['title']          = "Blog";
         $data['posts']          = Post::where('status', 1)->get();
         $data['latestposts']    = Post::where('status', 1)->limit(3)->get();
-        $data['categories']       = Category::get();
+        $data['categories']     = Category::get();
         $data['user']           = User::first();
         return view('portal.post', compact('data'));
     }
@@ -53,10 +55,10 @@ class PortalController extends Controller
     {
         $data['posts']          = Post::where('status', 1)->get();
         $data['latestposts']    = Post::where('status', 1)->limit(3)->get();
-        $data['categories']       = Category::get();
+        $data['categories']     = Category::get();
         $data['user']           = User::first();
-        $posts                  = Post::find($id);
-        return view('portal.post-detail', compact('posts','data'));
+        $post                   = Post::find($id);
+        return view('portal.post-detail', compact('post','data'));
     }
 
     public function menu($id)

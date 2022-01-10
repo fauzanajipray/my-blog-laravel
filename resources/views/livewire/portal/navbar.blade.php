@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="pull-left logo">
-                        <a href="index.html">
+                        <a href="{{ url('/') }}">
                             <img src="/assets/images/logo.png" alt="Medigo">
                         </a>
                     </div>	<!-- /.logo -->

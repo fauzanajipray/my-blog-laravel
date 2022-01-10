@@ -104,6 +104,4 @@ Route::get('search', [PortalController::class, 'search']);
 Route::prefix('comment')->group(function(){
     Route::post('/', [CommentController::class, 'insert']);
 });
-Route::prefix('contact')->group(function(){
-    Route::post('/', [MessageController::class, 'insert']);
-});
+Route::post('/', [MessageController::class, 'insert']);
