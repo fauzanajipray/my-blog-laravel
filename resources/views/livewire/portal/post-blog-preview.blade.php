@@ -6,8 +6,9 @@
     </div> <!-- /.blog-image -->
     <div class="blog-content">
         <span class="meta-date"><a href="#">{{ $post->created_at->format('d M Y') }}</a></span>
-        <span class="meta-comments"><a href="#">0 Comments</a></span>
-        <span class="meta-author"><a href="#">Candy Sharp</a></span>
+        <span class="meta-category"><a href="{{ url('category/'.$post->category_id) }}">{{ $category }}</a></span>
+        {{-- <span class="meta-comments"><a href="#">0 Comments</a></span> --}}
+        <span class="meta-author"><a href="#">Fauzan Ajip</a></span>
         <h3><a href="{{ url('post-detail/'.$post->id) }}">{{ $post->title}}</a></h3>
         {{-- <p class="light-text">Don accumsan nibh tincidunt sed.</p> --}} <!--- Add Subtitle if you want -->
         <p>

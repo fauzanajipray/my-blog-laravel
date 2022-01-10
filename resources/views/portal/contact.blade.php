@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="first-widget parralax" id="blog">
+<div class="first-widget parralax" id="contact">
     <div class="parallax parallax-overlay">
         <div class="container pageTitle">
             <div class="row">
