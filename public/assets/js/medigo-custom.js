@@ -45,15 +45,11 @@ jQuery(document).ready(function($){
 		function initRandomQuote(){
 			const data = null;
 			const xhr = new XMLHttpRequest();
-			// xhr.withCredentials = true;
 		  
 			xhr.addEventListener("readystatechange", function () {
 			  if (this.readyState === this.DONE) {
 				const randomNumber = Math.floor(Math.random() * 1642);
 				const quote = JSON.parse(this.responseText)[randomNumber];
-				console.log(quote.text);
-				
-				console.log(quote.author);
 				$('#random-quote').html(`<p class="light-text font-italic">${quote.text} - <span class="font-weight-bold">${quote.author}</span></p>`);
 			  }
 			});
@@ -232,7 +228,4 @@ jQuery(document).ready(function($){
 	        $("#result").slideUp();
 	    });
     
-   
-    
-
 });

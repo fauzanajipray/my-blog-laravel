@@ -67,7 +67,7 @@
                         </nav> <!-- /.main-nav -->
                         <!-- This one in here is responsive menu for tablet and mobiles -->
                         <div class="responsive-navigation visible-sm visible-xs">
-                            <a href="#fauzan" class="menu-toggle-btn">
+                            <a href="#" class="menu-toggle-btn">
                                 <i class="fa fa-bars"></i>
                             </a>
                         </div> <!-- /responsive_navigation -->
