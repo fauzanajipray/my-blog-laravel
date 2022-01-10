@@ -10,10 +10,10 @@
         <div class="container pageTitle">
             <div class="row">
                 <div class="col-md-6 col-sm-6">
-                    <h2 class="page-title">Blog</h2>
+                    <h2 class="page-title">{{ $data['title'] }} Posts</h2>
                 </div> <!-- /.col-md-6 -->
                 <div class="col-md-6 col-sm-6 text-right">
-                    <span class="page-location">Home / Blog</span>
+                    <span class="page-location">Home / Search</span>
                 </div> <!-- /.col-md-6 -->
             </div> <!-- /.row -->
         </div> <!-- /.container -->
@@ -34,7 +34,5 @@
 @endsection
 
 @section('js')
-
-<script src="/assets/js/plugins/owl.carousel.js"></script> 
 
 @endsection
