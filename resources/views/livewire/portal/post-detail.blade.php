@@ -34,9 +34,9 @@
     <div class="row">
         <div class="col-md-12">
             <div id="blog-comments" class="blog-post-comments">
-                <h3>3 Comments</h3>
+                <h3>{{ $comments->count() }} Comments</h3>
                 <div class="blog-comments-content">
-                    <div class="media">
+                    {{-- <div class="media">
                         <div class="pull-left">
                             <img class="media-object" src="images/includes/comment1.jpg" alt="">
                         </div>
@@ -59,19 +59,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="media">
-                        <div class="pull-left">
-                            <img class="media-object" src="images/includes/comment3.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <div class="media-heading">
-                                <h4>Marco New</h4> 
-                                <a href="#"><span>6 weeks ago</span><span>Reply</span></a>
-                            </div>
-                            <p>Enim, iste numquam inventore reiciendis libero quidem quos voluptate? Thank you for visiting templatemo.</p>
-                        </div>
-                    </div>
+                    </div> --}}
+                    @foreach ($comments as $comment)
+                    @livewire('portal.comment', ['comment' => $comment ])
+                    @endforeach
                 </div> <!-- /.blog-comments-content -->
             </div> <!-- /.blog-post-comments -->
         </div> <!-- /.col-md-12 -->
@@ -80,25 +71,35 @@
         <div class="col-md-12">
             <div class="comment-form">
                 <h3>Leave a comment</h3>
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                @if (session()->has('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
                 <div class="widget-inner">
-                    <form action="#" method="post">
+                    <form action="{{ url('comment') }}" method="post">
+                    @csrf
+                    <input type="text" name="post_id" value="{{$post->id}}" hidden >
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <p>
                                 <label for="name-id">Your Name:</label>
-                                <input type="text" id="name-id" name="name-id">
+                                <input type="text" id="name-id" name="name">
                             </p>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <p>
                                 <label for="email-id">Email Address:</label>
-                                <input type="text" id="email-id" name="email-id">
-                            </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p>
-                                <label for="site-id">Your Site:</label>
-                                <input type="text" id="site-id" name="site-id">
+                                <input type="email" id="email-id" name="email">
                             </p>
                         </div>
                     </div>

@@ -24,6 +24,7 @@
         @livewire('portal.post-detail', [
             'post' => $post,
             'user' => $data['user'],
+            'comments' => $data['comments'],
         ])
         @livewire('portal.sidebar', [
             'posts' => $data['latestposts'],

@@ -4594,8 +4594,6 @@ if ( typeof define === 'function' && define.amd ) {
   }
 })(jQuery);
 
-
-
 /*
  Plugin: jQuery Parallax
  Version 1.1.3
@@ -5103,10 +5101,6 @@ jQuery(document).ready(function($){
 });
 
 
-
-
-
-
 /*
  * jQuery Superfish Menu Plugin
  * Copyright (c) 2013 Joel Birch
@@ -5364,10 +5358,6 @@ jQuery(document).ready(function($){
   });
 
 })(jQuery);
-
-
-
-
 
 
 /*
@@ -6726,4 +6716,3 @@ jQuery(document).ready(function($){
 
   
 })(jQuery);
-

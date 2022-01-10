@@ -7,6 +7,7 @@ use App\Http\Controllers\MainMenuController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PortalController;
+use App\Http\Controllers\PostCommentController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -102,6 +103,6 @@ Route::get('category/{id}', [PortalController::class, 'category']);
 Route::get('menu/{id}', [PortalController::class, 'menu']);
 Route::get('search', [PortalController::class, 'search']);
 Route::prefix('comment')->group(function(){
-    Route::post('/', [CommentController::class, 'insert']);
+    Route::post('/', [PostCommentController::class, 'insert']);
 });
 Route::post('/', [MessageController::class, 'insert']);

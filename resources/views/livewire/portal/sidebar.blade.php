@@ -26,7 +26,7 @@
         </div> <!-- /.row -->
     </div> <!-- /.sidebar-widget -->
     <div class="sidebar-widget">
-        <h5 class="widget-title">Text Widget</h5>
-        <p class="light-text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient… </p>
+        <h5 class="widget-title">Quote</h5>
+        <div class="random-quote" id="random-quote"></div>
     </div> <!-- /.sidebar-widget -->
 </div> <!-- /.col-md-4 -->

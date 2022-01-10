@@ -63,8 +63,8 @@
                     <div class="form-group mb-3">
                         <label for="status">Status</label>
                         <select class="form-control" id="status" name="status">
-                            <option value="0">Belum Publish</option>
-                            <option value="1">Publish</option>
+                            <option value="0" {{ (0 == $data->status) ? "selected" : "" }}>Belum Publish</option>
+                            <option value="1" {{ (1 == $data->status) ? "selected" : "" }}>Publish</option>
                         </select>
                     </div>
                     <div class="mb-5">

@@ -11,12 +11,12 @@
                         @endforeach
                     </ul>
                 </div>
-                @if (Session::has('status'))
-                    <div class="alert alert-warning" role="alert">
-                        {{ Session::get('status') }}
-                    </div>
-                @endif
                 @endif  
+                @if (Session::has('status'))
+                <div class="alert alert-warning" role="alert">
+                    {{ Session::get('status') }}
+                </div>
+            @endif
                 <div class="widget-inner">
                 <form action="{{ url('/') }}" method="post" id="contact-form">
                     @csrf

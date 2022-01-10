@@ -40,7 +40,6 @@
 	@yield('js')
 	<script src="/assets/js/plugins.js"></script>
 	<script src="/assets/js/medigo-custom.js"></script>
-	<script src="/assets/js/app.js"></script> 
 
 	@livewireScripts
 

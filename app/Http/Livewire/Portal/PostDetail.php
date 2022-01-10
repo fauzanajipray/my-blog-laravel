@@ -10,11 +10,13 @@ class PostDetail extends Component
     private $post;
     private $category;
     private $user;
+    private $comments;
 
-    public function mount($post, $user){
+    public function mount($post, $user, $comments){
         $this->post = $post;
         $this->category = Category::find($post->category_id)->name;
         $this->user = $user;
+        $this->comments = $comments;
     }
 
     public function render()
@@ -22,7 +24,8 @@ class PostDetail extends Component
         return view('livewire.portal.post-detail', [
             'post' => $this->post,
             'category' => $this->category,
-            'user' => $this->user
+            'user' => $this->user,
+            'comments' => $this->comments,
         ]);
     }
 }

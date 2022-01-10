@@ -604,20 +604,25 @@ blockquote {
   color: #f17e39;
 }
 
-.pages {
+/** Pagination **/
+.pagination {
   margin: 20px 0 100px 0;
+  text-align: center;
 }
-.pages li {
-  display: inline;
+.pagination li a, .pagination li span {
   margin-right: 10px;
 }
-.pages li a {
-  padding: 10px 12px;
+.pagination li a {
   background-color: #f1f4f5;
   color: #31373a;
+} 
+.pagination li a:hover {
+  background-color: #f17e39;
+  color: white;
 }
-.pages li a.active {
-  color: #f17e39;
+.pagination li.active a {
+  background-color: #f17e39;
+  color: white;
 }
 
 /**** Isotope Filtering ****/
