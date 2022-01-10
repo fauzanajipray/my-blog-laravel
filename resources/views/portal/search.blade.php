@@ -5,8 +5,20 @@
 @endsection
 
 @section('content')
-
-@livewire('portal.show-slider') <!-- Slider -->
+<div class="first-widget parralax" id="blog">
+    <div class="parallax parallax-overlay">
+        <div class="container pageTitle">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <h2 class="page-title">Blog</h2>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-6 col-sm-6 text-right">
+                    <span class="page-location">Home / Blog</span>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.parallax-overlay -->
+</div>
 <div class="container">
     <div class="row">
         @livewire('portal.blog-posts', ['posts' => $data['posts']])
@@ -17,6 +29,7 @@
         ])
     </div>
 </div>
+
 
 @endsection
 

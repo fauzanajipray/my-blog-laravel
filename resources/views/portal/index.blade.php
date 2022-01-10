@@ -6,7 +6,9 @@
 
 @section('content')
 
-@livewire('portal.show-slider') <!-- Slider -->
+<div class="first-widget" >
+    @livewire('portal.show-slider') <!-- Slider -->
+</div>
 <div class="container">
     <div class="row">
         @livewire('portal.blog-posts', ['posts' => $data['headline']])
@@ -17,6 +19,7 @@
         ])
     </div>
 </div>
+
 
 @endsection
 
