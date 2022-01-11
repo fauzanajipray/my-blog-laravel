@@ -89,7 +89,7 @@ class PortalController extends Controller
     {
         $data['title']          = "Search";
         $data['posts']          = Post::where('status', 1)->where('title', 'like', '%'.$request->search.'%')
-                                            ->orWhere('content', 'like', '%'.$request->search.'%')->get();
+                                            ->orWhere('content', 'like', '%'.$request->search.'%')->paginate(3);
         $data['latestposts']    = Post::where('status', 1)->limit(3)->get();
         $data['categories']     = Category::get();
         $data['user']           = User::first();
