@@ -22,7 +22,7 @@
             <div class="alert alert-warning" role="alert">
                 {{ Session::get('status') }}
             </div>
-            @endif
+        @endif
         <div class="table-responsive">
             <table class="table table-striped table-sm">
             <thead>
