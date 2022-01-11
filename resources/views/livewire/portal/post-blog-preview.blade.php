@@ -1,6 +1,6 @@
 <div class="post-blog">
     <div class="blog-image">
-        <a href="blog-single.html">
+        <a href="{{ url('post-detail/'.$post->id) }}">
             <img src="{{ url($post->thumbnail) }}" alt="">
         </a>
     </div> <!-- /.blog-image -->
@@ -16,7 +16,8 @@
                 if (strlen($post->content) < 250) {
                     echo $post->content;
                 } else {
-                    echo substr($post->content, 0, 250) . '<a href="'.$post->url.'">...Continue Reading</a>';
+                    $url = url('post-detail/'.$post->id);
+                    echo substr($post->content, 0, 250) . '<a href="'.$url.'">... Read More</a>';
                 }
             @endphp
         </p>
