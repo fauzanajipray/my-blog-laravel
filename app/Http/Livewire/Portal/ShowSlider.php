@@ -9,9 +9,9 @@ class ShowSlider extends Component
 {
     private $sliders;
 
-    public function mount()
+    public function mount($sliders)
     {
-        $this->sliders = Slider::where('status', 1)->orderby('order','asc')->get();
+        $this->sliders = $sliders;
     }
 
     public function render()

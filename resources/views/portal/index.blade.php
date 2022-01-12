@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="first-widget" >
-    @livewire('portal.show-slider') <!-- Slider -->
+    @livewire('portal.show-slider', ['sliders' => $data['sliders']])
 </div>
 <div class="container">
     <div class="row">
