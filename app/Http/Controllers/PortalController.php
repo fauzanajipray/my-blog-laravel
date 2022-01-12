@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\MainMenu;
 use App\Models\Post;
-use App\Models\Message;
 use App\Models\PostComment;
+use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -18,6 +18,7 @@ class PortalController extends Controller
         $data['latestposts']    = Post::where('status', 1)->orderBy('created_at', 'desc')->limit(3)->get();
         $data['headline']       = Post::where('status', 1)->where('is_headline', 1)->limit(1)->paginate(3);
         $data['headline2']       = Post::where('status', 1)->where('is_headline', 1)->paginate(3);
+        $data['sliders']        = Slider::where('status', 1)->orderby('order','asc')->get();
 
         $data['user']           = User::first();
         $data['categories']       = Category::get();
@@ -89,7 +90,7 @@ class PortalController extends Controller
     {
         $data['title']          = "Search";
         $data['posts']          = Post::where('status', 1)->where('title', 'like', '%'.$request->search.'%')
-                                            ->orWhere('content', 'like', '%'.$request->search.'%')->get();
+                                            ->orWhere('content', 'like', '%'.$request->search.'%')->paginate(3);
         $data['latestposts']    = Post::where('status', 1)->limit(3)->get();
         $data['categories']     = Category::get();
         $data['user']           = User::first();
